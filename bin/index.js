@@ -7,12 +7,13 @@ var argv = require('optimist')
   .usage(
     'Usage: svg2pdf <source> <destination>\n' +
     'e.g.: svg2pdf source.svg destination.pdf\n' +
-    'e.g.: svg2pdf -w 100mm -h 100mm source.svg destination.pdf')
+    'e.g.: svg2pdf -w 100% source.svg destination.pdf\n' +
+    'e.g.: svg2pdf -w 100px -h 100px source.svg destination.pdf')
   .demand(2)
   .alias('w', 'width')
-  .describe('w', 'Set width of PDF, allowed units: mm, cm, in, px')
+  .describe('w', 'Set width of PDF, allowed units: %, px')
   .alias('h', 'height')
-  .describe('h', 'Set height of PDF, allowed units: mm, cm, in, px')
+  .describe('h', 'Set height of PDF, allowed units: %, px')
   .argv
 
 if (argv._.length >= 2) {
