@@ -1,6 +1,6 @@
 # svg2pdf-cli
 
-[![NPM Version](https://img.shields.io/npm/v/svg2pdf-cli.svg?style=flat)](https://www.npmjs.org/package/svg2pdf-clil)
+[![NPM Version](https://img.shields.io/npm/v/svg2pdf-cli.svg?style=flat)](https://www.npmjs.org/package/svg2pdf-cli)
 [![NPM Downloads](https://img.shields.io/npm/dm/svg2pdf-cli.svg?style=flat)](https://www.npmjs.org/package/svg2pdf-cli)
 
 A command-line tool for convert SVG image to PDF file
