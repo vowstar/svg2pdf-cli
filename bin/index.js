@@ -34,7 +34,7 @@ if (argv._.length >= 2) {
     } else {
       heightStr = ''
     }
-    content = '<img ' + widthStr + ' ' + heightStr + ' src="kpu_01.svg"></img>';
+    content = '<img ' + widthStr + ' ' + heightStr + ' src="' + path.basename(svgFile) + '"></img>';
     fs.writeFileSync(htmlFile, content, { encoding: 'utf8' });
     svg2pdf(htmlFile, pdfFile)
     fs.unlinkSync(htmlFile)
