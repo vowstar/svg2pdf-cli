@@ -1,13 +1,13 @@
 {
   "name": "svg2pdf-cli",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A command-line tool for convert SVG image to PDF file",
-  "main": "lib/index.js",
+  "main": "bin/index.js",
   "bin": {
     "svg2pdf": "bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha --reporter spec --timeout 15000"
   },
   "repository": {
     "type": "git",
@@ -16,17 +16,20 @@
   "keywords": [
     "svg",
     "pdf",
-    "phantomjs",
+    "puppeteer",
     "svg2pdf"
   ],
   "author": "Huang Rui",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/vowstar/svg2pdf-cli/issues"
   },
   "homepage": "https://github.com/vowstar/svg2pdf-cli",
   "dependencies": {
-    "html-pdf": "^2.2.0",
-    "optimist": "^0.6.1"
+    "puppeteer": "^5.2.1",
+    "yargs": "^16.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
   }
 }
