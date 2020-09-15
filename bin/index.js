@@ -8,12 +8,15 @@ const argv = require('yargs')
     'Usage: svg2pdf <source> <destination>\n' +
     'e.g.: svg2pdf source.svg destination.pdf\n' +
     'e.g.: svg2pdf -w 100% source.svg destination.pdf\n' +
-    'e.g.: svg2pdf -w 100px -h 100px source.svg destination.pdf')
+    'e.g.: svg2pdf -w 100px -h 100px source.svg destination.pdf\n' +
+    'e.g.: svg2pdf -w 100px -h 100px -f A4 source.svg destination.pdf')
   .demand(2)
   .alias('w', 'width')
   .describe('w', 'Set width of PDF, allowed units: %, px')
   .alias('h', 'height')
   .describe('h', 'Set height of PDF, allowed units: %, px')
+  .alias('f', 'format')
+  .describe('f', 'Set format of PDF, allowed options: Letter, Legal, Tabloid, Ledger, A0, A1, A2, A3, A4, A5, A6')
   .argv;
 
 if (argv._.length >= 2) {
@@ -35,6 +38,11 @@ if (argv._.length >= 2) {
     } else {
       heightStr = '';
     }
+    if (argv.f) {
+      formatStr = argv.f;
+    } else {
+      formatStr = 'A4';
+    }
 
     var svgCode = fs.readFileSync(svgFile, 'utf8');
     var svgBase64 = new Buffer.from(svgCode).toString('base64');
@@ -46,7 +54,7 @@ if (argv._.length >= 2) {
   }
 }
 
-function svg2pdf(source, destination) {
+function svg2pdf(source, destination, format='A4') {
   var html = source;
 
   (async () => {
@@ -66,7 +74,7 @@ function svg2pdf(source, destination) {
       console.error(err)
     }
 
-    await page.pdf({path: destination, format: 'Letter'});
+    await page.pdf({path: destination, format: format});
 
     await browser.close();
   })();

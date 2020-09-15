@@ -27,4 +27,5 @@ Usage: svg2pdf <source> <destination>
 e.g.: svg2pdf source.svg destination.pdf
 e.g.: svg2pdf -w 100% source.svg destination.pdf
 e.g.: svg2pdf -w 100px -h 100px source.svg destination.pdf
+e.g.: svg2pdf -w 100px -h 100px -f A4 source.svg destination.pdf
 ```
