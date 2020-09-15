@@ -14,6 +14,13 @@ svg2pdf-cli can be installed from NPM using:
 npm install -g svg2pdf-cli
 ```
 
+NOTE: libgbm required
+
+```bash
+sudo apt-get update
+sudo apt-get install -y libgbm-dev
+```
+
 ## Features
 
 * Support HTML, SVG file input
