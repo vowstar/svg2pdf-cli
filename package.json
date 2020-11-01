@@ -7,7 +7,7 @@
     "svg2pdf": "bin/index.js"
   },
   "scripts": {
-    "lint": "jshint index.js test/**.js",
+    "lint": "jshint bin/**.js test/**.js",
     "pretest": "npm run lint",
     "test": "nyc --reporter=lcov mocha --reporter spec --timeout 15000",
     "coverage": "cat ./coverage/lcov.info | coveralls"

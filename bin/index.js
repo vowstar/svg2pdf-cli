@@ -71,7 +71,7 @@ function svg2pdf(source, destination, format='A4') {
         await page.setContent(html, {waitUntil: 'networkidle0'});
       }
     } catch(err) {
-      console.error(err)
+      console.error(err);
     }
 
     await page.pdf({path: destination, format: format});
