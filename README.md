@@ -27,8 +27,24 @@ sudo apt-get install -y libgbm-dev
 ## Features
 
 * Support HTML, SVG file input
-* Support set SVG size (width and height)
+* Support set SVG size (width and height), NOTE: This option only can change the svg image size on the PDF page, but can't set PDF page size.
 * Support PDF file output
+
+Because svg2pdf using Chromium to render the svg, and it only support these format:
+
+Format  |       size
+------- | ----------------
+Letter  | 8.5in x 11in
+Legal   | 8.5in x 14in
+Tabloid | 11in x 17in
+Ledger  | 17in x 11in
+A0      | 33.1in x 46.8in
+A1      | 23.4in x 33.1in
+A2      | 16.54in x 23.4in
+A3      | 11.7in x 16.54in
+A4      | 8.27in x 11.7in
+A5      | 5.83in x 8.27in
+A6      | 4.13in x 5.83in
 
 ## Useage
 
