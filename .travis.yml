@@ -1,8 +1,22 @@
-sudo: false
 language: node_js
 node_js:
-  - "stable"
+  - '10'
+  - '12'
+  - '14'
 addons:
   apt:
     packages:
       - graphviz
+before_script:
+  - npm -v && node -v
+  - npm install && npm install --only=dev
+after_script:
+  - npm run coverage
+deploy:
+  provider: npm
+  email: vowstar@gmail.com
+  api_key:
+    secure: grAIgnj6hk4nLMp42py8dqp7O7+utynM/Il+rLWIWLCSDxyA4720RtHYyUPLYhjrWhERdUDUrua4m0k8qh2UTy1pfgclB4dzZO04mQc1RR9xluPmNGXIiE+aqqY6I7vAGQukUZF7ZDI69ABDW88fCt1VtwKbAnJ8SmaosbbYAHIR+75ykpj17aBNJnh//rkUkcfD/tEaXGHhNZsNwHgbS+dbmcy1v/+MWNNKy4O/ZaIuddQwJp+6SAbE/a1a0zwIiMbFo9j1aUl092D1akZMs9nw/imSAtOy9XUsKOrcX8XRSFNApSOnLLh/s0GXYiDWZXL0YAqHz6U1kz29KV92UQDYeF3f6KdNId+RONq0TpgS6vnYrg6k/eGxHATNb2OkCAw6RkphF3ObhzMBegohsrPzJcQDGdQq0WzIhoofbuFCFm4Do3vVEfaRLMYV0wsfarJJtR2Kx+6UGVyDFLA6FmWLZssWzsEdJVzYjWZ+HQm/bqTayctpc3VOh2UYKtrDi8axKTXSt/Y6G6HzPJd8d1v1i0EEQdUhd9hrS6s+98Plg/QijL1XAjyBIFSGSNUIB2aQl1O1YHFi+uPT/0W+IwXaJ8xessBJyVOq1vRvuMomM5/+7Up6TWCEdgIZ9BTSpDd3TD7nDfTdWHqZD2EDnHwcxtMvfAZ4d7R/oj4m5ts=
+  on:
+    tags: true
+    repo: vowstar/svg2pdf-cli
