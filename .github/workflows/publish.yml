@@ -1,0 +1,25 @@
+name: Publish
+on:
+  push:
+    tags:
+      - v*
+permissions: 
+  contents: read
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish to npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci --no-optional
+      - run: npm -v && node -v
+      - run: npm install && npm install --only=dev
+      - run: npm run test
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
