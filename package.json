@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/vowstar/svg2pdf-cli",
   "dependencies": {
-    "puppeteer": "^19.x",
+    "puppeteer": "^22.x",
     "yargs": "^17.x"
   },
   "devDependencies": {
